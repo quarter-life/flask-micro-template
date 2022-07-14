@@ -33,11 +33,11 @@ def get_app_config():
     return get_config_yaml(default_config_path)
 
 
-def get_app_config_by_key(key):
+def get_app_config_by_key(key, default_value=None):
     if current_app:
-        return current_app.config.get(key)
+        return current_app.config.get(key, default_value)
     else:
-        return get_app_config().get(key)
+        return get_app_config().get(key, default_value)
 
 
 if __name__ == '__main__':
